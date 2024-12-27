@@ -44,9 +44,9 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-full min-h-screen overflow-hidden">
+    <div className="w-full min-h-screen overflow-hidden bg-gradient-to-r from-teal-500 to-sky-500">
       {/* Overlay Effect */}
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-500 to-sky-500"></div>
+      <div className="absolute top-0 left-0 w-full h-full"></div>
 
       <div className="container mx-auto px-6 md:px-12 lg:px-24 relative">
         {/* Header Section */}
