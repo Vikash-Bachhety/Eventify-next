@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <>
-<div className="relative w-full h-screen overflow-hidden bg-cover bg-right" style={{ backgroundImage: 'url(/bg.jpg)' }}>
+<div className="relative w-full h-screen overflow-hidden bg-cover bg-right" style={{ backgroundImage: 'url(/bg1.jpg)' }}>
 
         {/* Background Video */}
         {/* <iframe
@@ -27,7 +27,7 @@ export default function Home() {
 
 
         {/* Overlay Effect */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black/10 backdrop-blur-sm"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center h-full">
