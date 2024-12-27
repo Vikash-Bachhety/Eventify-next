@@ -14,8 +14,10 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
+    // Remove token from localStorage (or other storage)
     localStorage.removeItem("token");
     setIsLoggedIn(false);
+    // Optionally, redirect to the login page
   };
 
   const toggleMobileMenu = () => {
@@ -24,7 +26,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-slate-800/90 py-4 shadow-lg z-20 fixed w-full">
-      <div className="container mx-auto flex justify-between px-8 items-center">
+      <div className="container mx-auto flex justify-between px-10 items-center">
         {/* Logo */}
         <div className="animate-ping text-white font-bold text-xs md:text-lg lg:text-xl">
           <Link href="/">Eventify</Link>
