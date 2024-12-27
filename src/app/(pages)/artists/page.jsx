@@ -78,7 +78,7 @@ const artists = [
 
 const ArtistsPage = () => {
   return (
-    <div className="w-full py-10 pt-24 bg-gray-900 text-white">
+    <div className="w-full py-10 pt-24 bg-gray-900 text-white p-14 md:p-0">
     <h1 className="text-4xl font-bold text-center mb-8">Artists</h1>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
       {artists.map((artist, index) => {

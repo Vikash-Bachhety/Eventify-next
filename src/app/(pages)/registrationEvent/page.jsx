@@ -56,8 +56,8 @@ export default function EventRegistrationForm() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen w-full bg-gradient-to-r from-teal-500 to-sky-500">
-      <div className="w-full max-w-xl mx-auto shadow-lg rounded-md bg-white p-6 mt-16">
+    <div className="flex justify-center items-center min-h-screen md:w-full bg-gradient-to-r from-teal-500 to-sky-500">
+      <div className="w-3/4 max-w-xl mx-auto shadow-lg rounded-md bg-white p-6 mt-16">
         <TypographyH2 className="text-center text-2xl mb-4">Event Registration</TypographyH2>
 
         <form onSubmit={handleSubmit}>

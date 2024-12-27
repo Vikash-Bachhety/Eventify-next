@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State to manage mobile menu visibility
 
   useEffect(() => {
     // Check if token exists in localStorage (or other storage)
@@ -13,17 +14,19 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
-    // Remove token from localStorage (or other storage)
     localStorage.removeItem("token");
     setIsLoggedIn(false);
-    // Optionally, redirect to the login page
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
     <nav className="bg-slate-800/90 py-4 shadow-lg z-20 fixed w-full">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex justify-between px-8 items-center">
         {/* Logo */}
-        <div className="animate-ping text-white font-bold text-xl">
+        <div className="animate-ping text-white font-bold text-xs md:text-lg lg:text-xl">
           <Link href="/">Eventify</Link>
         </div>
 
@@ -67,29 +70,10 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Login/Logout Button */}
-        <div className="flex items-center space-x-4">
-          {isLoggedIn ? (
-            <button
-              onClick={handleLogout}
-              className="bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg transition duration-200"
-            >
-              Logout
-            </button>
-          ) : (
-            <Link
-              href="/login"
-              className="bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg transition duration-200"
-            >
-              Login
-            </Link>
-          )}
-        </div>
-
-        {/* Mobile Menu Toggle */}
+        {/* Hamburger Icon for mobile screens */}
         <div className="md:hidden flex items-center">
           <button
-            id="mobile-menu-button"
+            onClick={toggleMobileMenu}
             className="text-gray-300 hover:text-white focus:outline-none"
           >
             <svg
@@ -113,7 +97,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className="hidden md:hidden bg-slate-800 px-4 py-2 space-y-2"
+        className={`md:hidden bg-slate-800 px-4 py-2 space-y-6 ${isMobileMenuOpen ? "block" : "hidden"}`}
       >
         <Link
           href="/about"

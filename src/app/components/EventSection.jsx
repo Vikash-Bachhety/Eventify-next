@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <>
             {/* Testimonials Section */}
-            <section className="w-full py-16 bg-black text-white flex flex-col items-center min-h-96">
+            <section className="w-full py-16 bg-black text-white flex flex-col justify-center items-center min-h-92">
                 <div className="text-center">
                     <TypographyH2 className="text-3xl font-bold">What People Are Saying</TypographyH2>
                     <TypographyParagraph className="text-lg mt-4 max-w-2xl mx-auto">
@@ -17,9 +17,9 @@ export default function Home() {
                     </TypographyParagraph>
                 </div>
 
-                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div className="mt-8 w-11/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                     {/* Testimonial 1 */}
-                    <div className="w-96 p-6 bg-gray-800 rounded-lg shadow-lg hover:skew-y-6 hover:scale-105 duration-300">
+                    <div className="w-92 p-6 bg-gray-800 rounded-lg shadow-lg hover:skew-y-6 hover:scale-105 duration-300">
                         <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1519648023493-d82b5f8d7b8a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
                         <TypographyParagraph className="italic">"A truly unforgettable experience! The best music event I've ever been to."</TypographyParagraph>
                         <div className="mt-4">
@@ -28,7 +28,7 @@ export default function Home() {
                         </div>
                     </div>
                     {/* Testimonial 2 */}
-                    <div className="w-96 p-6 bg-gray-800 rounded-lg shadow-lg hover:skew-y-6 hover:scale-105 duration-300">
+                    <div className="w-92 p-6 bg-gray-800 rounded-lg shadow-lg hover:skew-y-6 hover:scale-105 duration-300">
                         <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1533689476487-034f57831a58?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
                         <TypographyParagraph className="italic">"Amazing energy and incredible performances! Will definitely attend again."</TypographyParagraph>
                         <div className="mt-4">
@@ -37,7 +37,7 @@ export default function Home() {
                         </div>
                     </div>
                     {/* Testimonial 3 */}
-                    <div className="w-96 p-6 bg-gray-800 rounded-lg shadow-lg hover:skew-y-6 hover:scale-105 duration-300">
+                    <div className="w-92 p-6 bg-gray-800 rounded-lg shadow-lg hover:skew-y-6 hover:scale-105 duration-300">
                         <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1519648023493-d82b5f8d7b8a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
                         <TypographyParagraph className="italic">"A vibrant atmosphere with talented artists. Highly recommend it!"</TypographyParagraph>
                         <div className="mt-4">
@@ -46,7 +46,7 @@ export default function Home() {
                         </div>
                     </div>
                     {/* Testimonial 3 */}
-                    <div className="w-96 p-6 bg-gray-800 rounded-lg shadow-lg hover:skew-y-6 hover:scale-105 duration-300">
+                    <div className="w-92 p-6 bg-gray-800 rounded-lg shadow-lg hover:skew-y-6 hover:scale-105 duration-300">
                         <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1533689476487-034f57831a58?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
                         <TypographyParagraph className="italic">"A vibrant atmosphere with talented artists. Highly recommend it!"</TypographyParagraph>
                         <div className="mt-4">
@@ -55,7 +55,7 @@ export default function Home() {
                         </div>
                     </div>
                     {/* Testimonial 3 */}
-                    <div className="w-96 p-6 bg-gray-800 rounded-lg shadow-lg hover:skew-y-6 hover:scale-105 duration-300">
+                    <div className="w-92 p-6 bg-gray-800 rounded-lg shadow-lg hover:skew-y-6 hover:scale-105 duration-300">
                         <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1519648023493-d82b5f8d7b8a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
                         <TypographyParagraph className="italic">"A vibrant atmosphere with talented artists. Highly recommend it!"</TypographyParagraph>
                         <div className="mt-4">
@@ -64,7 +64,7 @@ export default function Home() {
                         </div>
                     </div>
                     {/* Testimonial 3 */}
-                    <div className="w-96 p-6 bg-gray-800 rounded-lg shadow-lg hover:skew-y-6 hover:scale-105 duration-300">
+                    <div className="w-92 p-6 bg-gray-800 rounded-lg shadow-lg hover:skew-y-6 hover:scale-105 duration-300">
                         <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1533689476487-034f57831a58?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
                         <TypographyParagraph className="italic">"A vibrant atmosphere with talented artists. Highly recommend it!"</TypographyParagraph>
                         <div className="mt-4">
@@ -77,7 +77,7 @@ export default function Home() {
 
             {/* FAQ Section */}
             <section className="py-16 bg-gradient-to-r from-teal-500 to-sky-500 w-full flex flex-col justify-center items-center">
-                <div className="text-center">
+                <div className="text-center p-8">
                     <TypographyH2 className="text-3xl font-bold text-gray-50">
                         Frequently Asked Questions
                     </TypographyH2>
@@ -86,7 +86,7 @@ export default function Home() {
                     </TypographyParagraph>
                 </div>
 
-                <div className="mt-8 space-y-6 w-1/3">
+                <div className="mt-8 space-y-6 w-3/4 md:w-1/3">
                     <Accordion type="single" collapsible className="space-y-4">
                         {/* Question 1 */}
                         <AccordionItem value="item-1">

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Slogan() {
   return (
-    <section className="py-10 bg-gradient-to-r from-teal-500 to-sky-400 text-white text-center">
+    <section className="py-10 bg-gradient-to-r from-teal-500 to-sky-400 text-white text-center px-10">
       <div className="border-b-2 border-sky-200 mb-20"></div>
 
       <div className="container mx-auto px-4">
@@ -26,9 +26,9 @@ export default function Slogan() {
             <span className="relative z-10"> Register for an Event</span></Link>
         </Button>
       </div>
-      <div className="flex space-x-5 justify-evenly mt-20">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/CWQdO3S_bVA?si=D8Pr2TCMH-HvZZ3Y" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ECTheIF2Gv4?si=WziiwrE3L_iTAIWS" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+      <div className="w-full flex flex-col items-center gap-10 md:space-x-5 justify-evenly mt-20 md:flex-row">
+        <iframe width="90%" height="315" src="https://www.youtube.com/embed/CWQdO3S_bVA?si=D8Pr2TCMH-HvZZ3Y" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+        <iframe width="90%" height="315" src="https://www.youtube.com/embed/ECTheIF2Gv4?si=WziiwrE3L_iTAIWS" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
       </div>
     </section>
   );

@@ -15,18 +15,19 @@ export default function Home() {
 
   return (
     <>
-      <div className="relative w-full h-screen overflow-hidden">
+<div className="relative w-full h-screen overflow-hidden bg-cover bg-right" style={{ backgroundImage: 'url(/bg.jpg)' }}>
+
         {/* Background Video */}
-        <iframe
-        className="top-0 left-0 w-full h-full object-cover -z-10 fixed"
-        src="https://www.youtube.com/embed/MuTh3_TkAHw?autoplay=1&loop=1&mute=1&playlist=MuTh3_TkAHw"
-        allow="autoplay; fullscreen"
-        allowFullScreen
-      ></iframe>
+        {/* <iframe
+          className="top-0 left-0 w-full h-full object-contain -z-10 absolute"
+          src="https://www.youtube.com/embed/MuTh3_TkAHw?autoplay=1&loop=1&mute=1&playlist=MuTh3_TkAHw"
+          allow="autoplay; fullscreen"
+          allowFullScreen
+        ></iframe> */}
 
 
         {/* Overlay Effect */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black/60 backdrop-blur-sm"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-black/10 backdrop-blur-sm"></div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center h-full">

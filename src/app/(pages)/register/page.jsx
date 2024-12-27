@@ -54,7 +54,7 @@ export default function RegisterForm() {
 
     return (
         <div className="flex pt-20 w-full min-h-screen bg-gradient-to-r from-teal-500 to-sky-500 ">
-            <div className="w-full max-w-lg mx-auto my-10 p-6 bg-white shadow-lg rounded-md border">
+            <div className=" w-3/4 max-w-lg mx-auto my-10 p-6 bg-white shadow-lg rounded-md border">
                 <TypographyH2 className="text-center text-2xl mb-4">Sign Up</TypographyH2>
 
                 <form onSubmit={handleSubmit}>
