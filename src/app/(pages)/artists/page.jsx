@@ -79,36 +79,36 @@ const artists = [
 const ArtistsPage = () => {
   return (
     <div className="w-full py-10 pt-24 bg-gray-900 text-white p-14 md:p-0">
-    <h1 className="text-4xl font-bold text-center mb-8">Artists</h1>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-      {artists.map((artist, index) => {
-        const artistSlug = artist.name.split(' ').join('_');
-        return (
-          <div
-            key={index}
-            className="bg-gray-800 rounded-lg shadow-md hover:border-white hover:shadow-white p-4 flex flex-col items-center transition-transform duration-300"
-          >
-            <img
-              src={artist.image}
-              alt={artist.name}
-              className="w-32 h-32 rounded-full object-cover mb-4"
-            />
-            <h3 className="text-xl font-semibold">{artist.name}</h3>
-            <p className="text-sm text-gray-400 text-center mt-2">{artist.description}</p>
-            <Link
-              href={`https://en.wikipedia.org/wiki/${artistSlug}`}
-              className="flex items-center gap-2 text-sm px-4 py-2 mt-5 rounded-md bg-rose-500 hover:bg-rose-600"
-              target="_self" // Open in a new tab
-              rel="noopener noreferrer"
+      <h1 className="text-4xl font-bold text-center mb-8">Artists</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        {artists.map((artist, index) => {
+          const artistSlug = artist.name.split(' ').join('_');
+          return (
+            <div
+              key={index}
+              className="bg-gray-800 rounded-lg shadow-md hover:border-white hover:shadow-white p-4 flex flex-col items-center transition-transform duration-300"
             >
-              <FaWikipediaW size={18} />
-              Profile
-            </Link>
-          </div>
-        );
-      })}
+              <img
+                src={artist.image}
+                alt={artist.name}
+                className="w-32 h-32 rounded-full object-cover mb-4"
+              />
+              <h3 className="text-xl font-semibold">{artist.name}</h3>
+              <p className="text-sm text-gray-400 text-center mt-2">{artist.description}</p>
+              <Link
+                href={`https://en.wikipedia.org/wiki/${artistSlug}`}
+                className="flex items-center gap-2 text-sm px-4 py-2 mt-5 rounded-md bg-rose-500 hover:bg-rose-600"
+                target="_self" // Open in a new tab
+                rel="noopener noreferrer"
+              >
+                <FaWikipediaW size={18} />
+                Profile
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </div>
-  </div>
   );
 };
 

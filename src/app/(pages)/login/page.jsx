@@ -33,8 +33,8 @@ export default function LoginForm() {
             const result = await response.data;
             const token = localStorage.setItem("token", result.data);
             if (result) {
-               router.push("/")
-               alert("login successful.");
+                router.push("/")
+                alert("login successful.");
             } else {
                 alert("Invalid login credentials.");
             }

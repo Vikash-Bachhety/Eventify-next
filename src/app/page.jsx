@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <>
-<div className="relative w-full h-screen overflow-hidden bg-cover bg-right" style={{ backgroundImage: 'url(/bg1.jpg)' }}>
+      <div className="relative w-full h-screen overflow-hidden bg-cover bg-right" style={{ backgroundImage: 'url(/bg1.jpg)' }}>
 
         {/* Background Video */}
         {/* <iframe
