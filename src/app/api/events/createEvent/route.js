@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { dbConnection } from "@/lib/dbConnection";
-import Events from "@/app/models/Event";
+import Events from "@/app/models/CreateEvent";
 
 export async function POST(request) {
     await dbConnection();
@@ -9,7 +9,7 @@ export async function POST(request) {
         const body = await request.json();
         const { eventName, eventType, eventDate, location, organizer, ticketPrice, artists, description, image } = body;
 
-        if (!eventName || !eventType || !eventDate || !location || !organizer || !ticketPrice || artists || !description || !image) {
+        if (!eventName || !eventType || !eventDate || !location || !organizer || !ticketPrice || !artists || !description || !image) {
             return NextResponse.json(
                 { message: "All fields are required" },
                 { status: 400 }

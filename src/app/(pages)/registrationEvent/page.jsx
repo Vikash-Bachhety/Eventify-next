@@ -4,13 +4,19 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectTrigger, SelectContent, SelectItem } from "@/components/ui/select";
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
 import { TypographyH2 } from "@/components/ui/typography";
-import { Textarea } from "@/components/ui/textarea";
+import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 
 export default function EventRegistrationForm() {
   const [events, setEvents] = useState([]);
+  const [userId, setUserId] = useState();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -22,6 +28,7 @@ export default function EventRegistrationForm() {
     event: "",
   });
 
+  // Fetch events
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -36,6 +43,20 @@ export default function EventRegistrationForm() {
     fetchEvents();
   }, []);
 
+  // Decode token to get user ID
+  useEffect(() => {
+    try {
+      const token = localStorage.getItem("token");
+      if (token) {
+        const decoded = jwtDecode(token);
+        setUserId(decoded.user._id);
+      }
+    } catch (error) {
+      console.error("Invalid or missing token:", error);
+    }
+  }, []);
+
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -44,14 +65,18 @@ export default function EventRegistrationForm() {
     }));
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("api/events/registerEvent", formData);
+      const response = await axios.post("/api/events/registerEvent", {
+        ...formData,
+        userId,
+      });
       const result = await response.data;
       console.log(result);
     } catch (error) {
-      console.log(error.message)
+      console.error("Registration error:", error.message);
     }
   };
 
@@ -63,7 +88,7 @@ export default function EventRegistrationForm() {
         <form onSubmit={handleSubmit}>
           {/* Full Name */}
           <div className="mb-4">
-            <Label htmlFor="fullName">Full Name</Label>
+            <Label htmlFor="name">Full Name</Label>
             <Input
               id="name"
               name="name"
@@ -89,7 +114,7 @@ export default function EventRegistrationForm() {
             />
           </div>
 
-          {/* Phone Number */}
+          {/* Phone */}
           <div className="mb-4">
             <Label htmlFor="phone">Phone Number</Label>
             <Input
@@ -113,6 +138,8 @@ export default function EventRegistrationForm() {
               value={formData.age}
               onChange={handleChange}
               className="mt-1"
+              min="1"
+              max="120"
               required
             />
           </div>
@@ -121,12 +148,10 @@ export default function EventRegistrationForm() {
           <div className="mb-4">
             <Label htmlFor="gender">Gender</Label>
             <Select
-              name="gender"
               value={formData.gender}
               onValueChange={(value) =>
                 setFormData((prevState) => ({ ...prevState, gender: value }))
               }
-              className="mt-1"
               required
             >
               <SelectTrigger className="w-full">
@@ -154,16 +179,14 @@ export default function EventRegistrationForm() {
             />
           </div>
 
-          {/* Event Selection */}
+          {/* Event */}
           <div className="mb-4">
-            <Label htmlFor="Event">Select Event</Label>
+            <Label htmlFor="event">Select Event</Label>
             <Select
-              name="event"
               value={formData.event}
               onValueChange={(value) =>
                 setFormData((prevState) => ({ ...prevState, event: value }))
               }
-              className="mt-1"
               required
             >
               <SelectTrigger className="w-full">
@@ -183,12 +206,9 @@ export default function EventRegistrationForm() {
           {formData.event && (
             <div>
               {events
-                .filter((event) => event.eventName === formData.event)
+                .filter((event) => event._id === formData.event)
                 .map((event) => (
-                  <div
-                    key={event._id}
-                    className="flex items-center justify-center"
-                  >
+                  <div key={event._id} className="flex items-center justify-center">
                     <span className="animate-bounce text-white bg-rose-600 rounded-full px-4 py-2 text-md font-semibold mb-2">
                       ${event.ticketPrice}
                     </span>
@@ -197,7 +217,7 @@ export default function EventRegistrationForm() {
             </div>
           )}
 
-          {/* Submit Button */}
+          {/* Submit */}
           <Button
             type="submit"
             className="w-full bg-rose-600 text-white py-2 rounded-md hover:bg-rose-700 transition"

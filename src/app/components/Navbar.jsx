@@ -70,6 +70,12 @@ const Navbar = () => {
           >
             Contact Us
           </Link>
+          <Link
+            href="/login"
+            className="block bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg transition duration-200"
+          >
+            Login
+          </Link>
         </div>
 
         {/* Hamburger Icon for mobile screens */}

@@ -1,4 +1,5 @@
 import RegisterEvents from "@/app/models/EventRegistration";
+import Users from "@/app/models/User";
 import { dbConnection } from "@/lib/dbConnection";
 import { NextResponse } from "next/server";
 
@@ -6,7 +7,7 @@ export async function POST(request) {
     dbConnection();
     try {
         const body = await request.json();
-        const { name, email, phone, age, gender, city, event } = body;
+        const { name, email, phone, age, gender, city, event, userId } = body;
 
         if (!name || !email || !phone || !age || !gender || !city || !event) {
             return NextResponse.json(
@@ -24,8 +25,14 @@ export async function POST(request) {
         }
 
         const newEventRegister = await RegisterEvents.create({
-            name, email, phone, age, gender, city, event
+            name, email, phone, age, gender, city, event, user: userId
         });
+
+        const user = await Users.findById(userId);
+        if (user) {
+            user.registeredEvents.push(newEventRegister._id);
+            await user.save();
+        }
 
         return NextResponse.json(
             {

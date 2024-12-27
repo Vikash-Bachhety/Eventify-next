@@ -1,4 +1,4 @@
-import Events from "@/app/models/Event";
+import Events from "@/app/models/CreateEvent";
 import { dbConnection } from "@/lib/dbConnection";
 import { NextResponse } from "next/server";
 

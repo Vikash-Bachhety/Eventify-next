@@ -1,39 +1,46 @@
 import mongoose from "mongoose";
 
+// User Schema
 const userSchema = mongoose.Schema({
     firstName: {
         type: String,
-        required: true
+        required: true,
     },
-    lastName:  {
+    lastName: {
         type: String,
     },
-    email:  {
-        type: String,
-        unique: true,
-        required: true
-    },
-    gender:  {
-        type: String,
-        required: true
-    },
-    phone:  {
+    email: {
         type: String,
         unique: true,
-        required: true
+        required: true,
+    },
+    gender: {
+        type: String,
+        required: true,
+    },
+    phone: {
+        type: String,
+        unique: true,
+        required: true,
     },
     ageGroup: {
         type: String,
-        required: true
+        required: true,
     },
-    city:  {
+    city: {
         type: String,
-        required: true
+        required: true,
     },
-    password:  {
+    password: {
         type: String,
-        required: true
-    }
+        required: true,
+    },
+    registeredEvents: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "registerevents", // Reference to the RegisterEvents model
+        },
+    ],
 });
 
 const Users = mongoose.models.users || mongoose.model("users", userSchema);

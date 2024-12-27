@@ -4,27 +4,40 @@ const eventRegistrationSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-    }, email: {
+    },
+    email: {
         type: String,
         required: true,
-    }, phone: {
+    },
+    phone: {
         type: String,
         required: true,
-    }, age: {
+    },
+    age: {
         type: String,
         required: true,
-    }, gender: {
+    },
+    gender: {
         type: String,
         required: true,
-    }, city: {
+    },
+    city: {
         type: String,
         required: true,
-    }, event: {
+    },
+    event: {
         type: String,
         required: true,
-    }
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "users",
+        required: true,
+    },
 });
 
-const RegisterEvents = mongoose.models.registerevents || mongoose.model("registerevents", eventRegistrationSchema);
+const RegisterEvents =
+    mongoose.models.registerevents ||
+    mongoose.model("registerevents", eventRegistrationSchema);
 
 export default RegisterEvents;

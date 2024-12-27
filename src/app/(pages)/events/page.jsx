@@ -43,6 +43,8 @@ const Events = () => {
     pageNumbers.push(i);
   }
 
+  const sortedEvents = [...events].sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate));
+
   return (
     <section className="py-20 bg-gradient-to-r from-teal-500 to-sky-400 min-h-screen">
       <div className="container mx-auto px-4">
@@ -58,7 +60,7 @@ const Events = () => {
         ) : (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
-              {currentEvents.map((event) => (
+              {sortedEvents.map((event) => (
                 <Card key={event._id} className="bg-white h-[580px] hover:shadow-md hover:shadow-black rounded-lg overflow-hidden hover:-skew-y-3 hover:scale-105 duration-300">
                   {/* Event Image */}
                   <div className="relative h-60">
