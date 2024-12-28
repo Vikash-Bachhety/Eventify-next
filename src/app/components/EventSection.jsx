@@ -90,30 +90,30 @@ export default function Home() {
                     <Accordion type="single" collapsible className="space-y-4">
                         {/* Question 1 */}
                         <AccordionItem value="item-1">
-                            <AccordionTrigger className="bg-white p-4 rounded-lg shadow-lg hover:bg-gray-200 transition-all">
+                            <AccordionTrigger className="bg-white p-4 shadow-lg rounded-t-md hover:bg-gray-200 transition-all">
                                 How can I book tickets for an event?
                             </AccordionTrigger>
-                            <AccordionContent className="p-4 bg-gray-50 rounded-b-lg">
+                            <AccordionContent className="p-4 bg-gray-50 mt-0.5 rounded-b-lg">
                                 You can book tickets directly on our website for the upcoming events. Simply browse through the events page and select the one you're interested in.
                             </AccordionContent>
                         </AccordionItem>
 
                         {/* Question 2 */}
                         <AccordionItem value="item-2">
-                            <AccordionTrigger className="bg-white p-4 rounded-lg shadow-lg hover:bg-gray-200 transition-all">
+                            <AccordionTrigger className="bg-white p-4 shadow-lg rounded-t-md hover:bg-gray-200 transition-all">
                                 Can I bring a guest to the event?
                             </AccordionTrigger>
-                            <AccordionContent className="p-4 bg-gray-50 rounded-b-lg">
+                            <AccordionContent className="p-4 bg-gray-50 mt-0.5 rounded-b-lg">
                                 Yes, most events allow you to bring a guest. Please ensure you purchase additional tickets if required.
                             </AccordionContent>
                         </AccordionItem>
 
                         {/* Question 3 */}
                         <AccordionItem value="item-3">
-                            <AccordionTrigger className="bg-white p-4 rounded-lg shadow-lg hover:bg-gray-200 transition-all">
+                            <AccordionTrigger className="bg-white p-4 shadow-lg rounded-t-md hover:bg-gray-200 transition-all">
                                 Are the events available worldwide?
                             </AccordionTrigger>
-                            <AccordionContent className="p-4 bg-gray-50 rounded-b-lg">
+                            <AccordionContent className="p-4 bg-gray-50 mt-0.5 rounded-b-lg">
                                 Currently, we offer events in select cities and regions. Check the event details for location availability.
                             </AccordionContent>
                         </AccordionItem>

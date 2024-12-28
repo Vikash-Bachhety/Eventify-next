@@ -8,10 +8,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/u
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { TypographyH2 } from "@/components/ui/typography";
 import Link from "next/link";
+import { Switch } from "@/components/ui/switch"
 import axios from "axios";
 
 export default function RegisterForm() {
     const [formData, setFormData] = useState({
+        accountType: "user",
         firstName: "",
         lastName: "",
         email: "",
@@ -30,6 +32,14 @@ export default function RegisterForm() {
         }));
     };
 
+    const handleAccountTypeChange = () => {
+        // Toggle between 'user' and 'organizer' when clicked
+        setFormData((prevState) => ({
+            ...prevState,
+            accountType: prevState.accountType === "user" ? "organizer" : "user",
+        }));
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(formData);
@@ -38,6 +48,7 @@ export default function RegisterForm() {
             const result = response.data;
             console.log(result)
             setFormData({
+                accountType: "user",
                 firstName: "",
                 lastName: "",
                 email: "",
@@ -53,11 +64,31 @@ export default function RegisterForm() {
     };
 
     return (
-        <div className="flex pt-20 w-full min-h-screen bg-gradient-to-r from-teal-500 to-sky-500 ">
-            <div className=" w-3/4 max-w-lg mx-auto my-10 p-6 bg-white shadow-lg rounded-md border">
+        <div className="flex w-full min-h-screen bg-gradient-to-r from-teal-500 to-sky-500 ">
+            <div className=" w-11/12 max-w-lg mx-auto my-10 p-6 bg-white shadow-lg rounded-md border">
                 <TypographyH2 className="text-center text-2xl mb-4">Sign Up</TypographyH2>
 
                 <form onSubmit={handleSubmit}>
+                    {/* Account Type Toggle */}
+                    <div className="mb-4 col-span-2">
+                        <Label htmlFor="accountType">Account Type</Label>
+                        <div className="flex items-center space-x-4">
+                            <div
+                                className={`relative shadow-md shadow-black inline-block w-16 h-6 rounded-full transition-all ${formData.accountType === "user" ? "bg-blue-500" : "bg-rose-500"
+                                    }`}
+                                onClick={handleAccountTypeChange}
+                            >
+                                <div
+                                    className={`absolute top-0 w-6 h-6 bg-white rounded-full transition-all ${formData.accountType === "user" ? "translate-x-0" : "translate-x-10"
+                                        }`}
+                                ></div>
+                            </div>
+                            <span className={`text-md font-semibold w-auto rounded-md px-2 py-1 text-white ${formData.accountType === "user" ? "bg-blue-500" : "bg-rose-500"}`}>
+                                {formData.accountType === "user" ? "User" : "Organizer"}
+                            </span>
+                        </div>
+                    </div>
+
                     {/* First Name */}
                     <div className="mb-4">
                         <Label htmlFor="firstName">First Name</Label>
@@ -122,9 +153,9 @@ export default function RegisterForm() {
                             onValueChange={(value) => setFormData({ ...formData, gender: value })}
                             className="flex space-x-4 mt-1 items-center"
                         >
-                            <RadioGroupItem id="male" value="Male" label="Male" />
-                            <RadioGroupItem id="female" value="Female" label="Female" />
-                            <RadioGroupItem id="other" value="Other" label="Other" />
+                            <RadioGroupItem id="male" value="Male" label="Male" />Male
+                            <RadioGroupItem id="female" value="Female" label="Female" />Female
+                            <RadioGroupItem id="other" value="Other" label="Other" />Other
                         </RadioGroup>
                     </div>
 

@@ -74,9 +74,17 @@ export default function EventRegistrationForm() {
         userId,
       });
       const result = await response.data;
-      console.log(result);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        age: "",
+        gender: "",
+        city: "",
+        event: "",
+      });
     } catch (error) {
-      console.error("Registration error:", error.message);
+      console.log("Registration error:", error.message);
     }
   };
 

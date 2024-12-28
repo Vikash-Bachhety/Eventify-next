@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 // User Schema
 const userSchema = mongoose.Schema({
+    accountType: {
+        type: String,
+        required: true,
+    },
     firstName: {
         type: String,
         required: true,
@@ -38,9 +42,11 @@ const userSchema = mongoose.Schema({
     registeredEvents: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "registerevents", // Reference to the RegisterEvents model
+            ref: "registerevents",
         },
     ],
+}, {
+    timestamps: true,
 });
 
 const Users = mongoose.models.users || mongoose.model("users", userSchema);

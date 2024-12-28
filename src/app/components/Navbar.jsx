@@ -1,34 +1,52 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State to manage mobile menu visibility
+  const [account, setAccount] = useState("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
-    // Check if token exists in localStorage (or other storage)
-    const token = localStorage.getItem("token"); // Adjust storage based on your app
-    setIsLoggedIn(!!token);
+    try {
+      const token = localStorage.getItem("token");
+      setIsLoggedIn(!!token);
+      if (token) {
+        const decoded = jwtDecode(token);
+        // console.log(decoded)
+        setAccount(decoded.user.accountType);
+      }
+    } catch (error) {
+      console.error("Invalid or missing token:", error);
+    }
   }, []);
 
   const handleLogout = () => {
-    // Remove token from localStorage (or other storage)
     localStorage.removeItem("token");
     setIsLoggedIn(false);
-    // Optionally, redirect to the login page
   };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  // Close the mobile menu when a link is clicked
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className="bg-slate-800/90 py-4 shadow-lg z-20 fixed w-full">
       <div className="container mx-auto flex justify-between px-10 items-center">
         {/* Logo */}
-        <div className="animate-ping text-white font-bold text-xs md:text-lg lg:text-xl">
+        <div className="animate-bounce text-white font-bold text-xs md:text-lg lg:text-4xl">
           <Link href="/">Eventify</Link>
         </div>
 
@@ -58,24 +76,62 @@ const Navbar = () => {
           >
             Artists
           </Link>
-          <Link
-            href="/createEvents"
-            className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200"
-          >
-            Create Event
-          </Link>
+          {isLoggedIn && account === "organizer" && (
+            <Link
+              href="/createEvents"
+              className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200"
+            >
+              Create Event
+            </Link>
+          )}
           <Link
             href="/contact"
             className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200"
           >
             Contact Us
           </Link>
-          <Link
-            href="/login"
-            className="block bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg transition duration-200"
-          >
-            Login
-          </Link>
+
+          {/* Dropdown Menu */}
+          {isLoggedIn ? (
+            <div className="relative">
+              <img
+                src="https://avatar.iran.liara.run/public/41"
+                alt="User Avatar"
+                className="w-10 h-10 rounded-full cursor-pointer border-2 border-gray-200 hover:shadow-lg"
+                onClick={toggleDropdown}
+              />
+              {/* Dropdown Content */}
+              {isDropdownOpen && (
+                <div className="absolute -right-20 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                  <ul>
+                    <li>
+                      <Link
+                        href={"/userEvents"}
+                        className="block px-4 py-2 rounded-lg hover:text-gray-100 hover:bg-rose-500 transition"
+                      >
+                        Registered Events
+                      </Link>
+                    </li>
+                    <li>
+                      <button
+                        onClick={handleLogout}
+                        className="w-full text-left px-4 py-2 rounded-lg hover:text-gray-100 hover:bg-rose-500 transition"
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link
+              href="/login"
+              className="block bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg transition duration-200"
+            >
+              Login
+            </Link>
+          )}
         </div>
 
         {/* Hamburger Icon for mobile screens */}
@@ -110,36 +166,44 @@ const Navbar = () => {
         <Link
           href="/about"
           className="block text-gray-300 hover:text-white transition duration-200"
+          onClick={closeMobileMenu}
         >
           About Us
         </Link>
         <Link
           href="/events"
           className="block text-gray-300 hover:text-white transition duration-200"
+          onClick={closeMobileMenu}
         >
           Events
         </Link>
         <Link
           href="/artists"
           className="block text-gray-300 hover:text-white transition duration-200"
+          onClick={closeMobileMenu}
         >
           Artists
         </Link>
         <Link
           href="/createEvents"
           className="block text-gray-300 hover:text-white transition duration-200"
+          onClick={closeMobileMenu}
         >
           Create Event
         </Link>
         <Link
           href="/contact"
           className="block text-gray-300 hover:text-white transition duration-200"
+          onClick={closeMobileMenu}
         >
           Contact Us
         </Link>
         {isLoggedIn ? (
           <button
-            onClick={handleLogout}
+            onClick={() => {
+              handleLogout();
+              closeMobileMenu();
+            }}
             className="block bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg transition duration-200"
           >
             Logout
@@ -148,6 +212,7 @@ const Navbar = () => {
           <Link
             href="/login"
             className="block bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg transition duration-200"
+            onClick={closeMobileMenu}
           >
             Login
           </Link>

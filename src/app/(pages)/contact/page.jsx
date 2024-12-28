@@ -44,7 +44,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-full min-h-screen overflow-hidden bg-gradient-to-r from-teal-500 to-sky-500">
+    <div className="w-full p-5 min-h-screen overflow-hidden bg-gradient-to-r from-teal-500 to-sky-500">
       {/* Overlay Effect */}
       <div className="absolute top-0 left-0 w-full h-full"></div>
 

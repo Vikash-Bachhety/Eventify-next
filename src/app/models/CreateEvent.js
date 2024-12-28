@@ -37,6 +37,8 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+}, {
+    timestamps: true,
 });
 
 const Events = mongoose.models.events || mongoose.model("events", eventSchema);

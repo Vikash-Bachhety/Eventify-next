@@ -29,21 +29,24 @@ const Events = () => {
     fetchEvents();
   }, []);
 
+  // Sort events by eventDate
+  const sortedEvents = [...events].sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate));
+
   // Calculate the index of the first and last event on the current page
   const indexOfLastEvent = currentPage * eventsPerPage;
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
-  const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
+
+  // Get current events for the page
+  const currentEvents = sortedEvents.slice(indexOfFirstEvent, indexOfLastEvent);
 
   // Handle page change
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // Generate page numbers dynamically based on the number of events
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(events.length / eventsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(sortedEvents.length / eventsPerPage); i++) {
     pageNumbers.push(i);
   }
-
-  const sortedEvents = [...events].sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate));
 
   return (
     <section className="py-20 bg-gradient-to-r from-teal-500 to-sky-400 min-h-screen">
@@ -60,7 +63,7 @@ const Events = () => {
         ) : (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
-              {sortedEvents.map((event) => (
+              {currentEvents.map((event) => (
                 <Card key={event._id} className="bg-white h-[580px] hover:shadow-md hover:shadow-black rounded-lg overflow-hidden hover:-skew-y-3 hover:scale-105 duration-300">
                   {/* Event Image */}
                   <div className="relative h-60">
@@ -73,7 +76,7 @@ const Events = () => {
 
                   {/* Event Details */}
                   <CardHeader className="px-4 pt-4">
-                    <CardTitle className="text-xl font-bold text-gray-800">{event.eventName}</CardTitle>
+                    <CardTitle className="text-md xl:text-xl font-bold text-gray-800">{event.eventName}</CardTitle>
                     <CardDescription className="text-gray-600">{event.eventType}</CardDescription>
                     <CardDescription className="text-gray-600">{event.eventDate}</CardDescription>
                   </CardHeader>

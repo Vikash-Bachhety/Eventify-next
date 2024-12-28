@@ -34,6 +34,8 @@ const eventRegistrationSchema = new mongoose.Schema({
         ref: "users",
         required: true,
     },
+}, {
+    timestamps: true,
 });
 
 const RegisterEvents =

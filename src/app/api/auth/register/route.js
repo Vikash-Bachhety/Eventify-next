@@ -9,7 +9,7 @@ export async function POST(request) {
 
   try {
     const body = await request.json();
-    const { firstName, lastName, email, phone, gender, ageGroup, city, password } = body;
+    const { accountType, firstName, lastName, email, phone, gender, ageGroup, city, password } = body;
     // console.log(body);
 
     const user = await Users.findOne({ $or: [{ email }, { phone }] });
@@ -24,6 +24,7 @@ export async function POST(request) {
     const hashPassword = await bcrypt.hash(password, 10);
 
     const newUser = await Users.create({
+      accountType,
       firstName,
       lastName,
       email,
