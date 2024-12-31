@@ -24,12 +24,17 @@ export default function Footer() {
               </a>
             </li>
             <li>
+              <a href="/artists" className="hover:text-yellow-400 transition">
+                Artists
+              </a>
+            </li>
+            <li>
               <a href="/contact" className="hover:text-yellow-400 transition">
                 Contact
               </a>
             </li>
             <li>
-              <a href="/register" className="hover:text-yellow-400 transition">
+              <a href="/registrationEvent" className="hover:text-yellow-400 transition">
                 Register for Events
               </a>
             </li>

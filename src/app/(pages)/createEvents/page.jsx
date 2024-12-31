@@ -1,23 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "@/components/ui/select";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { TypographyH2, TypographyParagraph } from "@/components/ui/typography";
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+import { jwtDecode } from "jwt-decode";
 
 export default function CreateEventPage() {
+  const router = useRouter();
+  const [accountType, setUserAccount] = useState("");
   const [formData, setFormData] = useState({
     eventName: "",
     eventType: "",
@@ -29,6 +27,21 @@ export default function CreateEventPage() {
     description: "",
     image: null,
   });
+
+  const token = sessionStorage.getItem("token");
+  useEffect(() => {
+    try {
+      if (!token) {
+        router.push("/login")
+      }
+      else {
+        const decoded = jwtDecode(token);
+        setUserAccount(decoded.user.accountType);
+      }
+    } catch (error) {
+      console.error("Invalid or missing token:", error);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

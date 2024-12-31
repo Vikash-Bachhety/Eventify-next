@@ -3,16 +3,17 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [account, setAccount] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {
     try {
-      const token = localStorage.getItem("token");
+      const token = sessionStorage.getItem("token");
       setIsLoggedIn(!!token);
       if (token) {
         const decoded = jwtDecode(token);
@@ -25,8 +26,9 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
     setIsLoggedIn(false);
+    router.push("/login")
   };
 
   const toggleMobileMenu = () => {
@@ -46,8 +48,11 @@ const Navbar = () => {
     <nav className="bg-slate-800/90 py-4 shadow-lg z-20 fixed w-full">
       <div className="container mx-auto flex justify-between px-10 items-center">
         {/* Logo */}
-        <div className="animate-bounce text-white font-bold text-xs md:text-lg lg:text-4xl">
-          <Link href="/">Eventify</Link>
+        <div className="flex items-center gap-5">
+          <img src="/png.png" className="w-10 h-10 animate-spin brightness-200" alt="" />
+          <div className="text-white font-bold text-xs md:text-lg lg:text-2xl">
+            <Link href="/">Eventify</Link>
+          </div>
         </div>
 
         {/* Navigation Links */}

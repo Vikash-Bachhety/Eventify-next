@@ -15,7 +15,7 @@ const Page = () => {
     useEffect(() => {
         const fetchUser = () => {
             try {
-                const token = localStorage.getItem("token");
+                const token = sessionStorage.getItem("token");
                 if (token) {
                     const decoded = jwtDecode(token);
                     setUser(decoded.user._id);

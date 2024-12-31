@@ -64,7 +64,7 @@ const Events = () => {
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
               {currentEvents.map((event) => (
-                <Card key={event._id} className="bg-white h-[580px] hover:shadow-md hover:shadow-black rounded-lg overflow-hidden hover:-skew-y-3 hover:scale-105 duration-300">
+                <Card key={event._id} className="bg-white h-[580px] hover:shadow-md hover:shadow-black rounded-lg overflow-hidden hover:-skew-y-3 duration-300">
                   {/* Event Image */}
                   <div className="relative h-60">
                     <img

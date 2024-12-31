@@ -46,7 +46,7 @@ export default function EventRegistrationForm() {
   // Decode token to get user ID
   useEffect(() => {
     try {
-      const token = localStorage.getItem("token");
+      const token = sessionStorage.getItem("token");
       if (token) {
         const decoded = jwtDecode(token);
         setUserId(decoded.user._id);

@@ -31,7 +31,7 @@ export default function LoginForm() {
         try {
             const response = await axios.post('/api/auth/login', formData);
             const result = await response.data;
-            const token = localStorage.setItem("token", result.data);
+            const token = sessionStorage.setItem("token", result.data);
             if (result) {
                 router.push("/")
                 alert("login successful.");
