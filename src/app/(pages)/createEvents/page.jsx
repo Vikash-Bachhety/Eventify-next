@@ -28,8 +28,8 @@ export default function CreateEventPage() {
     image: null,
   });
 
-  const token = sessionStorage.getItem("token");
   useEffect(() => {
+    const token = sessionStorage.getItem("token");
     try {
       if (!token) {
         router.push("/login")

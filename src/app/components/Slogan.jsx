@@ -4,10 +4,11 @@ import Link from "next/link";
 
 export default function Slogan() {
   return (
-    <section className="py-10 bg-gradient-to-r from-teal-500 to-sky-400 text-white text-center px-10">
+    <section className="py-10 text-white text-center px-10">
+
       <div className="border-b-2 border-sky-200 mb-20"></div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 ">
         {/* Slogans Section */}
         <TypographyH1 className="text-4xl md:text-5xl font-extrabold mb-6">
           Experience the Rhythm, Live the Moment

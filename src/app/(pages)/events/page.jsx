@@ -29,27 +29,22 @@ const Events = () => {
     fetchEvents();
   }, []);
 
-  // Sort events by eventDate
   const sortedEvents = [...events].sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate));
 
-  // Calculate the index of the first and last event on the current page
   const indexOfLastEvent = currentPage * eventsPerPage;
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
 
-  // Get current events for the page
   const currentEvents = sortedEvents.slice(indexOfFirstEvent, indexOfLastEvent);
 
-  // Handle page change
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  // Generate page numbers dynamically based on the number of events
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(sortedEvents.length / eventsPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return (
-    <section className="py-20 bg-gradient-to-r from-teal-500 to-sky-400 min-h-screen">
+    <section className="py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-50 mb-10">
           Upcoming Events

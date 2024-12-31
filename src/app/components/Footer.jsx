@@ -3,7 +3,8 @@ import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-white py-10">
+
+    <footer className="bg-slate-800/50 text-white py-10">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Column 1: About */}
         <div>
@@ -41,47 +42,47 @@ export default function Footer() {
           </ul>
         </div>
 
-     {/* Column 3: Connect to Us */}
-<div>
-  <TypographyH4 className="text-white mb-4">Connect to Us</TypographyH4>
-  <TypographyParagraph>
-    Follow us on social media to stay updated on the latest events and exclusive offers.
-  </TypographyParagraph>
-  <div className="mt-4 flex space-x-4">
-    <a
-      href="https://facebook.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-400 hover:text-blue-500"
-    >
-      <FaFacebook size={30} />
-    </a>
-    <a
-      href="https://twitter.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-400 hover:text-blue-600"
-    >
-      <FaTwitter size={30} />
-    </a>
-    <a
-      href="https://instagram.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-pink-500 hover:text-pink-600"
-    >
-      <FaInstagram size={30} />
-    </a>
-    <a
-      href="https://youtube.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-red-500 hover:text-red-600"
-    >
-      <FaYoutube size={30} />
-    </a>
-  </div>
-</div>
+        {/* Column 3: Connect to Us */}
+        <div>
+          <TypographyH4 className="text-white mb-4">Connect to Us</TypographyH4>
+          <TypographyParagraph>
+            Follow us on social media to stay updated on the latest events and exclusive offers.
+          </TypographyParagraph>
+          <div className="mt-4 flex space-x-4">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-500"
+            >
+              <FaFacebook size={30} />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-600"
+            >
+              <FaTwitter size={30} />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-pink-500 hover:text-pink-600"
+            >
+              <FaInstagram size={30} />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-red-500 hover:text-red-600"
+            >
+              <FaYoutube size={30} />
+            </a>
+          </div>
+        </div>
 
       </div>
 

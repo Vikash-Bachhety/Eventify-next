@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <>
             {/* Testimonials Section */}
-            <section className="w-full py-16 bg-black text-white flex flex-col justify-center items-center min-h-92">
+            <section className="w-full py-16 text-white flex flex-col justify-center items-center min-h-92">
                 <div className="text-center">
                     <TypographyH2 className="text-3xl font-bold">What People Are Saying</TypographyH2>
                     <TypographyParagraph className="text-lg mt-4 max-w-2xl mx-auto">
@@ -76,7 +76,7 @@ export default function Home() {
             </section>
 
             {/* FAQ Section */}
-            <section className="py-16 bg-gradient-to-r from-teal-500 to-sky-500 w-full flex flex-col justify-center items-center">
+            <section className="py-16 w-full flex flex-col justify-center items-center">
                 <div className="text-center p-8">
                     <TypographyH2 className="text-3xl font-bold text-gray-50">
                         Frequently Asked Questions
