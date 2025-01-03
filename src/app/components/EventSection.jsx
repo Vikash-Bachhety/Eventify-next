@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { TypographyH2, TypographyParagraph } from "@/components/ui/typography";
 
@@ -9,7 +8,7 @@ export default function Home() {
     return (
         <>
             {/* Testimonials Section */}
-            <section className="w-full py-16 text-white flex flex-col justify-center items-center min-h-92">
+            <section className="w-full py-16 text-white flex flex-col justify-center items-center min-h-w-92">
                 <div className="text-center">
                     <TypographyH2 className="text-3xl font-bold">What People Are Saying</TypographyH2>
                     <TypographyParagraph className="text-lg mt-4 max-w-2xl mx-auto">
@@ -17,59 +16,68 @@ export default function Home() {
                     </TypographyParagraph>
                 </div>
 
-                <div className="mt-8 w-11/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div className="mt-8 w-11/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 place-items-center gap-10">
                     {/* Testimonial 1 */}
-                    <div className="w-92 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
-                        <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1519648023493-d82b5f8d7b8a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                        <TypographyParagraph className="italic">"A truly unforgettable experience! The best music event I've ever been to."</TypographyParagraph>
+                    <div className="w-96 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
+                        <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://www.phdmedia.com/hungary/wp-content/uploads/sites/61/2015/05/temp-people-profile.jpg" />
+                        <TypographyParagraph className="italic">"The energy of the crowd and the music was electrifying. I felt alive the entire night!"</TypographyParagraph>
                         <div className="mt-4">
-                            <p className="font-semibold">John Doe</p>
-                            <p className="text-sm text-gray-400">Music Lover</p>
+                            <p className="font-semibold">Chris Taylor</p>
+                            <p className="text-sm text-gray-400">Concert Enthusiast</p>
                         </div>
                     </div>
                     {/* Testimonial 2 */}
-                    <div className="w-92 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
+                    <div className="w-96 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
                         <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1533689476487-034f57831a58?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                        <TypographyParagraph className="italic">"Amazing energy and incredible performances! Will definitely attend again."</TypographyParagraph>
+                        <TypographyParagraph className="italic">"Performing at this event was a dream come true. The audience was so supportive and engaging!"</TypographyParagraph>
                         <div className="mt-4">
-                            <p className="font-semibold">Jane Smith</p>
-                            <p className="text-sm text-gray-400">Performer</p>
+                            <p className="font-semibold">Samantha Lee</p>
+                            <p className="text-sm text-gray-400">Musician</p>
                         </div>
                     </div>
                     {/* Testimonial 3 */}
-                    <div className="w-92 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
-                        <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1519648023493-d82b5f8d7b8a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                        <TypographyParagraph className="italic">"A vibrant atmosphere with talented artists. Highly recommend it!"</TypographyParagraph>
+                    <div className="w-96 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
+                        <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://img.freepik.com/free-photo/young-male-posing-isolated-against-blank-studio-wall_273609-12356.jpg" />
+                        <TypographyParagraph className="italic">"I’ve attended several events, and each time, the experience just gets better!"</TypographyParagraph>
                         <div className="mt-4">
-                            <p className="font-semibold">Alex Johnson</p>
-                            <p className="text-sm text-gray-400">Event Attendee</p>
+                            <p className="font-semibold">Michael Brown</p>
+                            <p className="text-sm text-gray-400">Frequent Attendee</p>
                         </div>
                     </div>
-                    {/* Testimonial 3 */}
-                    <div className="w-92 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
-                        <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1533689476487-034f57831a58?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                        <TypographyParagraph className="italic">"A vibrant atmosphere with talented artists. Highly recommend it!"</TypographyParagraph>
+                    {/* Testimonial 4 */}
+                    <div className="w-96 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
+                        <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+                        <TypographyParagraph className="italic">"The organization and creativity put into these events are top-notch. Can't wait for the next one!"</TypographyParagraph>
                         <div className="mt-4">
-                            <p className="font-semibold">Alex Johnson</p>
-                            <p className="text-sm text-gray-400">Event Attendee</p>
+                            <p className="font-semibold">Emily Davis</p>
+                            <p className="text-sm text-gray-400">Event Planner</p>
                         </div>
                     </div>
-                    {/* Testimonial 3 */}
-                    <div className="w-92 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
-                        <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1519648023493-d82b5f8d7b8a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                        <TypographyParagraph className="italic">"A vibrant atmosphere with talented artists. Highly recommend it!"</TypographyParagraph>
+                    {/* Testimonial 5 */}
+                    <div className="w-96 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
+                        <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://sb.kaleidousercontent.com/67418/1920x1545/c5f15ac173/samuel-raita-ridxdghg7pw-unsplash.jpg" />
+                        <TypographyParagraph className="italic">"As a photographer, this event provided the most vibrant and exciting visuals to capture. It was incredible!"</TypographyParagraph>
                         <div className="mt-4">
-                            <p className="font-semibold">Alex Johnson</p>
-                            <p className="text-sm text-gray-400">Event Attendee</p>
+                            <p className="font-semibold">Liam Carter</p>
+                            <p className="text-sm text-gray-400">Event Photographer</p>
                         </div>
                     </div>
-                    {/* Testimonial 3 */}
-                    <div className="w-92 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
-                        <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1533689476487-034f57831a58?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                        <TypographyParagraph className="italic">"A vibrant atmosphere with talented artists. Highly recommend it!"</TypographyParagraph>
+                    {/* Testimonial 6 */}
+                    <div className="w-96 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
+                        <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <TypographyParagraph className="italic">"The food, the lights, the music, everything was just perfect. A night to remember!"</TypographyParagraph>
                         <div className="mt-4">
-                            <p className="font-semibold">Alex Johnson</p>
-                            <p className="text-sm text-gray-400">Event Attendee</p>
+                            <p className="font-semibold">Sophia Green</p>
+                            <p className="text-sm text-gray-400">Food Critic</p>
+                        </div>
+                    </div>
+                    {/* Testimonial 7 */}
+                    <div className="w-96 p-6 bg-gray-800 rounded-lg hover:shadow-md hover:shadow-slate-50 hover:scale-105 duration-300">
+                        <img className="w-28 h-28 object-cover object-center animate-bounce duration-2000 mx-auto mb-10 rounded-full" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+                        <TypographyParagraph className="italic">"I made so many new friends and connections. This event truly brings people together."</TypographyParagraph>
+                        <div className="mt-4">
+                            <p className="font-semibold">Daniel Walker</p>
+                            <p className="text-sm text-gray-400">Social Connector</p>
                         </div>
                     </div>
                 </div>
