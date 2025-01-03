@@ -135,7 +135,7 @@ export default function ContactPage() {
         </div>
 
         {/* Social Media Section */}
-        <div className="text-center mt-12 text-white animate-bounce">
+        <div className="text-center mt-8 text-white animate-bounce">
           <TypographyParagraph className="text-lg mb-4">
             Connect with us on social media
           </TypographyParagraph>
