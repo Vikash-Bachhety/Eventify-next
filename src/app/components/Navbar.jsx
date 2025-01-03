@@ -48,7 +48,7 @@ const Navbar = () => {
     <nav className="bg-slate-800/90 shadow-lg z-20 fixed w-full">
       <div className="container mx-auto flex justify-between px-6 items-center">
         {/* Logo */}
-        <Link href="/"><img src="/png.png" className="w-16 h-16 md:h-20 md:w-20" alt="" />
+        <Link href="/"><img src="/png.png" className="mt-2 w-16 h-16 md:h-20 md:w-20" alt="" />
             </Link>
 
         {/* Navigation Links */}
