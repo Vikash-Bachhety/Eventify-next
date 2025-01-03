@@ -45,53 +45,49 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-slate-800/90 py-4 shadow-lg z-20 fixed w-full">
-      <div className="container mx-auto flex justify-between px-10 items-center">
+    <nav className="bg-slate-800/90 shadow-lg z-20 fixed w-full">
+      <div className="container mx-auto flex justify-between px-6 items-center">
         {/* Logo */}
-        <div className="flex items-center gap-5">
-          <img src="/png.png" className="w-10 h-10 animate-spin brightness-200" alt="" />
-          <div className="text-white font-bold text-xs md:text-lg lg:text-2xl">
-            <Link href="/">Eventify</Link>
-          </div>
-        </div>
+        <Link href="/"><img src="/png.png" className="w-16 h-16 md:h-20 md:w-20" alt="" />
+            </Link>
 
         {/* Navigation Links */}
         <div className="hidden md:flex items-center space-x-8">
           <Link
             href="/"
-            className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200"
+            className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200 font-thin"
           >
             Home
           </Link>
           <Link
             href="/about"
-            className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200"
+            className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200 font-thin"
           >
             About Us
           </Link>
           <Link
             href="/events"
-            className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200"
+            className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200 font-thin"
           >
             Events
           </Link>
           <Link
             href="/artists"
-            className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200"
+            className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200 font-thin"
           >
             Artists
           </Link>
           {isLoggedIn && account === "organizer" && (
             <Link
               href="/createEvents"
-              className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200"
+              className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200 font-thin"
             >
               Create Event
             </Link>
           )}
           <Link
             href="/contact"
-            className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200"
+            className="text-gray-300 hover:text-white hover:bg-slate-900 px-2 py-2 rounded-md transition duration-200 font-thin"
           >
             Contact Us
           </Link>
